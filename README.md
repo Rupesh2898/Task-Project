@@ -6,6 +6,8 @@ Prerequisite
 1. Node (version 16)
 2. Mysql (version 8)
 
+In this project Fastify Framework of Nodejs is used along with mysql for database.
+
 Supported File consist poatman collection which can be used to test the apis and screen recording of functionality and er diagram.
 
 Steps to setup Server.

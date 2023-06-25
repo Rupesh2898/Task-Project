@@ -50,3 +50,4 @@ Thumbs.db
 
 .env
 node_modules/
+storage/
