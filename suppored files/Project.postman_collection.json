@@ -176,6 +176,27 @@
 						"url": "{{dev_url}}/api/v1/create-user"
 					},
 					"response": []
+				},
+				{
+					"name": "Get Log",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Feed1\",\n    \"email\": \"ab@gamil.com\",\n    \"role\": \"ADMIN\",\n    \"password\": \"dsjkf\",\n    \"feed_ids\": [1\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{dev_url}}/api/v1/get-user-log"
+					},
+					"response": []
 				}
 			]
 		}
