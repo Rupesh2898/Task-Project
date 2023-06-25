@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "43241150-3544-4957-917b-0beb352ac505",
+		"name": "Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "20290146"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json().resources.data.access_token;",
+									"",
+									"pm.collectionVariables.unset(\"accessToken\");",
+									"pm.collectionVariables.set(\"accessToken\", jsonData);",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "superAdminPass@1234",
+								"username": "superadmin@example.com"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZm9vYmFyIiwiaWF0IjoxNjcyODI0NzgyLCJleHAiOjE2NzI4MjQ4NDJ9.tP18oiAs66I7NK102FFjKA49L710TVFHpUyBq_xmFQc",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{dev_url}}/api/v1/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Feeds",
+			"item": [
+				{
+					"name": "Get Feed List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{dev_url}}/api/v1/get-feed-list"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Feed Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{dev_url}}/api/v1/get-feed-detail/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Feed",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{dev_url}}/api/v1/delete-feed/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Feed",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Feed2\",\n    \"url\": \"example.com\",\n    \"description\": \"desc\",\n    \"user_ids\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{dev_url}}/api/v1/create-feed"
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Users to feed",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_ids\":[2]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{dev_url}}/api/v1/assign-user-to-feed/1"
+					},
+					"response": []
+				},
+				{
+					"name": "update delete Access",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"feed_editable\":true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{dev_url}}/api/v1/update-feed/1/delete-access/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create Users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Feed1\",\n    \"email\": \"ab@gamil.com\",\n    \"role\": \"ADMIN\",\n    \"password\": \"dsjkf\",\n    \"feed_ids\": [1\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{dev_url}}/api/v1/create-user"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "{{accessToken}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "dev_url_aws",
+			"value": "http://52.74.10.38",
+			"type": "string"
+		},
+		{
+			"key": "accessToken",
+			"value": ""
+		},
+		{
+			"key": "dev_url",
+			"value": "localhost:5000",
+			"type": "string"
+		},
+		{
+			"value": "",
+			"type": "string"
+		}
+	]
+}

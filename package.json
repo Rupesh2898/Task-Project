@@ -1,0 +1,31 @@
+{
+  "name": "dummy-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "migration": "node migration.js"
+  },
+  "author": "Self",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/autoload": "^5.7.0",
+    "@fastify/cors": "^8.2.0",
+    "@fastify/jwt": "^6.5.0",
+    "@fastify/mysql": "^4.1.0",
+    "@nearform/sql": "^1.10.0",
+    "bcrypt": "^5.1.0",
+    "env-schema": "^5.2.0",
+    "fastify": "^4.10.2",
+    "fastify-plugin": "^4.4.0",
+    "fluent-json-schema": "^4.0.0",
+    "node-cron": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
